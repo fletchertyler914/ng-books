@@ -6,18 +6,13 @@ import { Observable, of, BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-  items: BookEntity[] = [];
-  cart: BehaviorSubject<BookEntity[]> = new BehaviorSubject<BookEntity[]>([]);
+  public cart: BehaviorSubject<BookEntity[]> = new BehaviorSubject<BookEntity[]>([]);
 
-  constructor() {
-  }
+  constructor() { }
 
   add(book) {
-    // Add Book To Cart Items
-    this.items.push(book);
-
     // Update Cart With Latest Items
-    this.cart.next(this.items);
+    this.cart.next([...this.cart.getValue().concat(book)]);
   }
 
   // Return Cart Items

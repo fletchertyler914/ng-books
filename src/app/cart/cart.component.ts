@@ -15,7 +15,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     // Subscribe To Cart Items
-    this.cartService.getItems().subscribe((books: BookEntity[]) => {
+    this.cartService.cart.subscribe((books: BookEntity[]) => {
       // Set Cart Item Count And Price Total
       this.cartCount = books.length;
       this.cartTotal = this.calculateCartTotal(books).toFixed(2);
