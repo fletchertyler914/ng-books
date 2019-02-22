@@ -21,13 +21,14 @@ export interface BookEntity {
 export class BooksService {
   selected: BookEntity;
 
-  constructor() {
-  }
+  constructor() { }
 
+  // Return Observable Of Books After Delay
   getBooks(): Observable<BookEntity[]> {
     return of(bookData).pipe(delay(700));
   }
 
+  // Get A Books ISBN
   getBook(isbn: string): Observable<BookEntity> {
     const book = bookData.find(b => b.isbn === isbn);
     return of(book);

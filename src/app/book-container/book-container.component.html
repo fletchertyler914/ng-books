@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-4 list-wrapper">
-      <app-book-list *ngIf="books.length" [books]="books | async"></app-book-list>
+      <app-book-list *ngIf="books" [books]="books | async"></app-book-list>
     </div>
 
     <div class="col">
       <div class="row">
         <div class="col-auto ml-auto">
-          <p><i class="fa fa-shopping-cart"></i> [Number of items] Items • $[total price of books]</p>
+          <app-cart></app-cart>
         </div>
       </div>
-
+      
       <router-outlet></router-outlet>
     </div>
   </div>

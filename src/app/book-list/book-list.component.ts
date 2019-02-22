@@ -10,11 +10,14 @@ import { Router } from '@angular/router';
 })
 export class BookListComponent {
   @Input() books: BookEntity[];
+  public selectedBook: number;
 
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) { }
 
-  selectBook(book: BookEntity) {
-    this.router.navigate([ `/books/${book.isbn}` ]);
+  // Route The Selected Book To Book Details
+  // And Add Active Class At The Selected Books Index
+  selectBook(book: BookEntity, index: number) {
+    this.selectedBook = index;
+    this.router.navigate([ `/books/${book.isbn}`]);
   }
 }

@@ -1,4 +1,11 @@
+// Use Full Page Width
+.container, 
+.row {
+  max-width: 100%;
+}
+
 .list-wrapper {
   height: 100vh;
   overflow: scroll;
+  padding-left: 0px; 
 }
