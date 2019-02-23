@@ -3,6 +3,7 @@ import { BookEntity, BooksService } from '../books.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { CartService } from '../cart.service';
 import { Observable } from 'rxjs/internal/Observable';
+import { map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-book-detail',
@@ -19,9 +20,10 @@ export class BookDetailComponent implements OnInit {
 
   ngOnInit() {
     // Get Book ID From Route Params
-    this.route.params.subscribe((params: Params) => {
-      this.book$ = this.booksService.getBook(params.id);
-    });
+    this.book$ = this.route.params.pipe(
+      map(routeParams => routeParams.id),
+      switchMap(id => this.booksService.getBook(id))
+    );
   }
 
   // Add Selected Book To Cart

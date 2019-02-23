@@ -19,4 +19,20 @@ export class CartService {
   getItems(): Observable<BookEntity[]> {
     return this.cart;
   }
+
+  // Helper Function To Calculate Running Cart Total
+  calculateCartTotal(): string {
+    let totalPrice = 0;
+
+    // Subscribe To Cart To Calculate Running Total
+    this.cart.subscribe((cartItems: BookEntity[]) => {
+      if (cartItems.length > 0) {
+        totalPrice = cartItems
+          .map(book => book.price)
+          .reduce((runningtotal, currentBookPrice) => currentBookPrice + runningtotal);
+      }
+    });
+
+    return totalPrice.toFixed(2);
+  }
 }

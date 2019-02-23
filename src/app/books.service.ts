@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { bookData } from './books.data';
 import { of } from 'rxjs/internal/observable/of';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 export interface BookEntity {
@@ -20,6 +20,7 @@ export interface BookEntity {
 })
 export class BooksService {
   selected: BookEntity;
+  selectedBook: BehaviorSubject<BookEntity> = new BehaviorSubject<BookEntity>(null);
 
   constructor() { }
 
@@ -30,7 +31,13 @@ export class BooksService {
 
   // Get A Books ISBN
   getBook(isbn: string): Observable<BookEntity> {
+    // Find Book With Matching ISBN
     const book = bookData.find(b => b.isbn === isbn);
+
+    // Save State Of Selected Book
+    this.selectedBook.next(book);
+
+    // Return Selected Book
     return of(book);
   }
 }

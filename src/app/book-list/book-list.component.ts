@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { BookEntity } from '../books.service';
+import { BookEntity, BooksService } from '../books.service';
 import { Router } from '@angular/router';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-book-list',
@@ -10,14 +11,14 @@ import { Router } from '@angular/router';
 })
 export class BookListComponent {
   @Input() books: BookEntity[];
-  public selectedBook: number;
+  @Input() selectedBook: BookEntity;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private bookService: BooksService) { }
 
   // Route The Selected Book To Book Details
   // And Add Active Class At The Selected Books Index
-  selectBook(book: BookEntity, index: number) {
-    this.selectedBook = index;
+  selectBook(book: BookEntity) {
+    this.bookService.selectedBook.next(book);
     this.router.navigate([ `/books/${book.isbn}`]);
   }
 }

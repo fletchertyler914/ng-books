@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { BookEntity } from '../books.service';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cart',
@@ -18,22 +19,7 @@ export class CartComponent implements OnInit {
     this.cartService.cart.subscribe((books: BookEntity[]) => {
       // Set Cart Item Count And Price Total
       this.cartCount = books.length;
-      this.cartTotal = this.calculateCartTotal(books).toFixed(2);
+      this.cartTotal = this.cartService.calculateCartTotal();
     });
   }
-
-  // Helper Function To Calculate Running Cart Total
-  calculateCartTotal(books: BookEntity[]): number {
-    let totalPrice = 0;
-
-    // Iterate Through Each Book In The Cart
-    // And Add The Price To The Total Price
-    books.forEach(book => {
-      totalPrice += book.price;
-    });
-
-    // Return The Total Cart Price
-    return totalPrice;
-  }
-
 }

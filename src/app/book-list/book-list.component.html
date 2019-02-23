@@ -6,7 +6,7 @@
     <div *ngFor="let book of books; let i = index"
          (click)="selectBook(book, i)"
          class="list-group-item list-group-item-action flex-column align-items-start"
-         [class.active]="selectedBook === i"
+         [class.active]="selectedBook === book"
     >
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">{{book.title}}</h5>
