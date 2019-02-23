@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { BookEntity, BooksService } from '../books.service';
 import { Router } from '@angular/router';
-import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-book-list',

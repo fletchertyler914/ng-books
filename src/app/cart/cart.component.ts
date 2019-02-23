@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { BookEntity } from '../books.service';
-import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cart',

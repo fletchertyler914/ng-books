@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BookEntity } from './books.service';
-import { Observable, of, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Injectable({
   providedIn: 'root'

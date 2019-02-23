@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookEntity, BooksService } from '../books.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../cart.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { map, switchMap } from 'rxjs/operators';

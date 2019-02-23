@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService, BookEntity } from '../books.service';
 import { Observable } from 'rxjs/internal/Observable';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-book-container',
