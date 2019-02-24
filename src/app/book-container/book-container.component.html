@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-4 list-wrapper">
-      <app-book-list *ngIf="books" [books]="books | async" [selectedBook]="selectedBook | async"></app-book-list>
+      <app-book-list 
+        *ngIf="books" 
+        [books]="books | async" 
+        [selectedBook]="selectedBook | async"
+        (updateSelectedBook)='booksService.selectedBook.next($event)'></app-book-list>
     </div>
 
     <div class="col">

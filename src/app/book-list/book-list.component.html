@@ -3,8 +3,9 @@
     Books List
   </div>
   <div class="list-group list-group-flush">
-    <div *ngFor="let book of books; let i = index"
-         (click)="selectBook(book, i)"
+    <div *ngFor="let book of books"
+         (click)="updateSelectedBook.emit(book)"
+         [routerLink]="['/books/', book.isbn]"
          class="list-group-item list-group-item-action flex-column align-items-start"
          [class.active]="selectedBook === book"
     >

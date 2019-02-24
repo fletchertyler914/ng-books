@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService, BookEntity } from '../books.service';
 import { Observable } from 'rxjs/internal/Observable';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-book-container',
@@ -11,7 +12,7 @@ export class BookContainerComponent implements OnInit {
   books: Observable<BookEntity[]>;
   selectedBook: Observable<BookEntity>;
 
-  constructor(private booksService: BooksService) { }
+  constructor(public booksService: BooksService) { }
 
   ngOnInit() {
     // Subscribe To Book Service To Fetch Books

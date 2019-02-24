@@ -16,7 +16,7 @@ export class BookDetailComponent implements OnInit {
   constructor(
     private booksService: BooksService,
     private route: ActivatedRoute,
-    private cartService: CartService) { }
+    public cartService: CartService) { }
 
   ngOnInit() {
     // Get Book ID From Route Params
@@ -24,11 +24,6 @@ export class BookDetailComponent implements OnInit {
       map(routeParams => routeParams.id),
       switchMap(id => this.booksService.getBook(id))
     );
-  }
-
-  // Add Selected Book To Cart
-  addToCart(book: BookEntity) {
-    this.cartService.add(book);
   }
 
   // Get Book Rating Stars

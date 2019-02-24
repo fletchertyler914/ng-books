@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter } from '@angular/core';
 import { BookEntity, BooksService } from '../books.service';
 import { Router } from '@angular/router';
 
@@ -11,13 +11,7 @@ import { Router } from '@angular/router';
 export class BookListComponent {
   @Input() books: BookEntity[];
   @Input() selectedBook: BookEntity;
+  @Output() updateSelectedBook: EventEmitter<BookEntity> = new EventEmitter();
 
-  constructor(private router: Router, private bookService: BooksService) { }
-
-  // Route The Selected Book To Book Details
-  // And Add Active Class At The Selected Books Index
-  selectBook(book: BookEntity) {
-    this.bookService.selectedBook.next(book);
-    this.router.navigate([ `/books/${book.isbn}`]);
-  }
+  constructor() { }
 }

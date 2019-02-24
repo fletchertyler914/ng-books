@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { bookData } from './books.data';
 import { Observable } from 'rxjs/internal/Observable';
-import { of } from 'rxjs/internal/Observable/of';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { delay } from 'rxjs/operators';
+import { of } from 'rxjs/internal/observable/of';
 
 export interface BookEntity {
   isbn: string;
