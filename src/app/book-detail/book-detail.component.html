@@ -1,4 +1,4 @@
-<div *ngIf="book$ | async as book" class="row">
+<div *ngIf="book$ | async as book" class="row book-detail">
   <div class="col">
     <h2>{{book.title}} <span class="rating">Rating: <i *ngFor="let star of getRatingStars(book)" class="fa fa-star"></i></span></h2>
     <h5>By: {{book.author}}</h5>

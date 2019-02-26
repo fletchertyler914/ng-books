@@ -1,11 +1,29 @@
 // Use Full Page Width
-.container, 
-.row {
-  max-width: 100%;
+.book-container {
+  width: 100%;
+  background-color: black;
+  color: #A9A9A9;
 }
 
 .list-wrapper {
   height: 100vh;
   overflow: scroll;
   padding-left: 0px; 
+}
+
+.detail-wrapper {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+
+.no-margin {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.noBookSelected {
+  margin: 0 auto;
+  position: relative;
+  top: 100px;
 }

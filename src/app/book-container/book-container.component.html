@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="row">
+<div class="book-container">
+  <div class="row no-margin">
     <div class="col-4 list-wrapper">
       <app-book-list 
         *ngIf="books" 
@@ -8,15 +8,17 @@
         (updateSelectedBook)='booksService.selectedBook.next($event)'></app-book-list>
     </div>
 
-    <div class="col">
-      <div class="row">
-        <div class="col-auto ml-auto">
-          <app-cart></app-cart>
-        </div>
-      </div>
-
+    <div *ngIf="(selectedBook | async) !== null; else noBookSelected" class="col-8 detail-wrapper">
+      <app-cart></app-cart>
       <router-outlet></router-outlet>
-    </div>
+    </div>  
+    <ng-template #noBookSelected>
+      <div class="noBookSelected">
+        <h5>
+            Select a book to view it's details.
+        </h5>
+      </div>
+    </ng-template>  
   </div>
 </div>
 

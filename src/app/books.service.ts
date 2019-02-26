@@ -35,8 +35,11 @@ export class BooksService {
     // Find Book With Matching ISBN
     const book = bookData.find(b => b.isbn === isbn);
 
-    // Save State Of Selected Book
-    this.selectedBook.next(book);
+    // Check To See If Book Exist
+    if (!!book) {
+      // Save State Of Selected Book
+      this.selectedBook.next(book);
+    }
 
     // Return Selected Book
     return of(book);

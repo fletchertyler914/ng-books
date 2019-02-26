@@ -1,3 +1,8 @@
 @import "variables";
 @import "~bootstrap/scss/bootstrap";
 @import "~font-awesome/scss/font-awesome";
+
+body {
+    background: #000000;
+    overflow: hidden;
+}

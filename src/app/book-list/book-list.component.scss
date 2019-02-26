@@ -1,3 +1,22 @@
 .rating {
   white-space: nowrap
 }
+
+.card {
+  background-color: #696969;
+}
+.card-header {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-color: #696969;
+}
+
+.list-group-item {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #D3D3D3;
+  border-color: #696969;
+}
+
+.list-group-item.active {
+  background-color: #696969;
+  border-color: #D3D3D3;
+}
